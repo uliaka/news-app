@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import useLogin from './useLogin.js';
+import checkAuthorized from './useLogin.js';
+import loginPageStories from '../../stories/loginPage.stories.js';
 
-const LoginContainer = styled.form`
+const LoginContainer = styled.div`
   box-shadow: 0px 0px 6px 3px rgba(219,219,219,1);
   text-align: center;
   padding: 20px;
@@ -12,6 +13,13 @@ const LoginContainer = styled.form`
   flex-wrap: wrap;
   flex-direction: column;
   display: flex;
+`
+const ErrorContainer = styled.div`
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+  text-align: center;
+  margin-bottom: 10px;
 `
 const TextLogin = styled.div`
   font-size: 35px;
@@ -47,27 +55,34 @@ const LoginButton = styled.div`
   color: white;
 `
 const LoginPage = () => {
-  const [ username, setUsername ] = useState('')
-  const [ pasword, setPassword] = useState('')
-  const [ filed, setFiled ] = useState({username: '', pasword: ''})
-  const [result, loading, error] = useLogin(filed)
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const login = () => {
-    setFiled({username: username, pasword: pasword })
-  }
-  useEffect(() => {
-    if(result) {
-      console.log('result', result)
+  const login = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      await checkAuthorized(username, password);
+    } catch(error) {
+      setError('Invalid username or password!');
+      setUsername('');
+      setPassword('');
     }
-  }, [filed])
+    setLoading(false);
+  }
+
   return (
     <LoginContainer>
       <TextLogin>Login</TextLogin>
       <InputContainer>
+        {error && <ErrorContainer>{error}</ErrorContainer>}
         <InputLabel>Username</InputLabel>
         <InputSection 
            placeholder='Type your username'
            type='text'
+           value={username}
            onChange={(e)=> setUsername(e.target.value)}
         />
       </InputContainer>
@@ -76,10 +91,13 @@ const LoginPage = () => {
         <InputSection 
            placeholder='Type your password'
            type='password'
+           value={password}
            onChange={(e)=> setPassword(e.target.value)}
         />
       </InputContainer>
-      <LoginButton onClick={() => login()}>Login</LoginButton>
+      <LoginButton disabled={loading} onClick={(e)=> login(e)}>
+        {loading ? 'Logging in...' : 'Log in'}
+      </LoginButton>
     </LoginContainer>
   );
 }
