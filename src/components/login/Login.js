@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import checkAuthorized from './useLogin.js';
-import loginPageStories from '../../stories/loginPage.stories.js';
 
 const LoginContainer = styled.div`
   box-shadow: 0px 0px 6px 3px rgba(219,219,219,1);
   text-align: center;
   padding: 20px;
-  margin: 20px;
   max-width: 400px;
   height: 400px;
   flex-wrap: wrap;
   flex-direction: column;
   display: flex;
+  margin: auto;
 `
 const ErrorContainer = styled.div`
   font-size: 20px;
