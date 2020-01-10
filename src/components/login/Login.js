@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import checkAuthorized from './useLogin.js';
+import useLogin from './useLogin.js';
 
 const LoginContainer = styled.div`
   box-shadow: 0px 0px 6px 3px rgba(219,219,219,1);
@@ -56,21 +56,7 @@ const LoginButton = styled.div`
 const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-
-  const login = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      await checkAuthorized(username, password);
-    } catch(error) {
-      setError('Invalid username or password!');
-      setUsername('');
-      setPassword('');
-    }
-    setLoading(false);
-  }
+  const [result, loading, error, login] = useLogin()
 
   return (
     <LoginContainer>
@@ -94,7 +80,7 @@ const LoginPage = () => {
            onChange={(e)=> setPassword(e.target.value)}
         />
       </InputContainer>
-      <LoginButton disabled={loading} onClick={(e)=> login(e)}>
+      <LoginButton disabled={loading} onClick={(e)=> login(username, password)}>
         {loading ? 'Logging in...' : 'Log in'}
       </LoginButton>
     </LoginContainer>

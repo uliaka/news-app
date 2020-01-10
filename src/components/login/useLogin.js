@@ -6,30 +6,31 @@ const checkAuthorized = (username, password) => new Promise((resolve, reject) =>
     if (username === 'admin' && password === '12345') {
       resolve()
     } else {
-      reject()
+      reject('Invalid username or password')
     }
   }, 1000)
 })
 
-/*const useLogin = (username, password) => {
+const useLogin = (username, password) => {
   const [result, setResult] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
-  useEffect(() => {
-    const login = async () => {
-      try {
-        setLoading(true)
-        const result = await checkAuthorized(username, password)
-        setLoading(false)
-        setResult(result)
-      } catch (error) {
-        setLoading(false)
-        setError(error.message)
-      }
-    }
-    login()
-  }, [username, password])
-  return [result, loading, error]
-}*/
 
-export default checkAuthorized
+  const login = async (username, password) => {
+    try {
+      setLoading(true)
+      const result = await checkAuthorized(username, password)
+      setLoading(false)
+      setResult(result)
+      setError(null)
+    } catch (error) {
+      console.log(error)
+      setLoading(false)
+      setError(error)
+    }
+
+  }
+  return [result, loading, error, login]
+}
+
+export default useLogin
