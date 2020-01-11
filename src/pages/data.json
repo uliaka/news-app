@@ -1,0 +1,136 @@
+{
+  "status": "ok",
+  "totalResults": 10,
+  "articles": [
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "Taiwan's Tsai wins second presidential term",
+      "description": "President Tsai Ing-wen sweeps to victory in an election dominated by relations with mainland China.",
+      "url": "http://www.bbc.co.uk/news/world-asia-51077553",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/51AB/production/_110470902_tsaiepa.jpg",
+      "publishedAt": "2020-01-11T13:46:53Z",
+      "content": "Image copyrightEPAImage caption\r\n Tsai Ing-wen has told China to abandon its threat of force\r\nTaiwan's President Tsai Ing-wen has secured a second term after sweeping to victory in the island's hard-fought election.\r\nWith almost all votes counted, Ms Tsai had… [+4175 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "India demolishes illegal luxury high-rises",
+      "description": "Waterfront high-rises are demolished after the Supreme Court ruled they violated environmental laws.",
+      "url": "http://www.bbc.co.uk/news/world-asia-india-51076897",
+      "urlToImage": "https://ichef.bbci.co.uk/images/ic/1024x576/p0803xl5.jpg",
+      "publishedAt": "2020-01-11T13:29:45Z",
+      "content": "Media captionLuxury high-rise blown up over environmental violations\r\nAuthorities in southern India have demolished two luxury lakeside apartment complexes that were built in violation of environmental rules.\r\nResidents of the high-rises in the state of Keral… [+2453 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "Trump's birthday wishes to Kim 'not enough'",
+      "description": "The US must fully accept North Korea's demands so nuclear discussions can restart, an official says.",
+      "url": "http://www.bbc.co.uk/news/world-asia-51074956",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/5E3F/production/_110472142_157cd31b-ea5e-4adb-96c8-39f7aee71f0c.jpg",
+      "publishedAt": "2020-01-11T11:24:16Z",
+      "content": "Image copyrightReutersImage caption\r\n The leaders held an impromptu meeting at the demilitarized zone between the Koreas last June\r\nNorth Korea has received birthday greetings from US President Donald Trump for Kim Jong-un, but says their personal relationshi… [+3961 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "Waller-Bridge auctions outfit for bushfires fund",
+      "description": "Fleabag creator puts her Golden Globes tuxedo on eBay to support the relief effort in Australia.",
+      "url": "http://www.bbc.co.uk/news/entertainment-arts-51074864",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/111EF/production/_110472107_hi058965816.jpg",
+      "publishedAt": "2020-01-11T09:09:03Z",
+      "content": "Image copyrightReutersImage caption\r\n Waller-Bridge wore the outfit to the 77th Golden Globe Awards in Beverley Hills, California\r\nFleabag creator Phoebe Waller-Bridge has put her Golden Globes outfit up for auction on eBay to raise money for the Australian b… [+2227 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "Harry and Meghan talks 'progressing well'",
+      "description": "The Sussexes hope talks over their future can be concluded \"sooner rather than later\", reports say.",
+      "url": "http://www.bbc.co.uk/news/uk-51074844",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/10B3E/production/_110441486_hi059012660.jpg",
+      "publishedAt": "2020-01-11T08:36:54Z",
+      "content": "Image copyrightGetty Images\r\nThe Duke and Duchess of Sussex hope talks over their future roles in the Royal Family can be concluded \"sooner rather than later\", a source has told PA news agency. \r\nMeetings are said to be \"progressing well\", with the UK and Can… [+4857 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "Species-saving tortoise returns to Galápagos",
+      "description": "The 100-year-old tortoise of legendary libido is credited with saving his species from extinction.",
+      "url": "http://www.bbc.co.uk/news/world-latin-america-51073620",
+      "urlToImage": "https://ichef.bbci.co.uk/images/ic/1024x576/p047x0n1.jpg",
+      "publishedAt": "2020-01-11T07:04:05Z",
+      "content": "Media captionThe tortoise that has saved his species from extinction\r\nA giant tortoise whose legendary libido has been credited with saving his species from extinction is to the return to the wild on the Galápagos Islands.\r\nDiego was among 14 male tortoises s… [+1832 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "Iran says it 'unintentionally' shot down plane",
+      "description": "Iran had so far denied responsibility for Wednesday's Ukrainian plane crash, in which 176 people died.",
+      "url": "http://www.bbc.co.uk/news/world-middle-east-51073621",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/7A23/production/_97176213_breaking_news_bigger.png",
+      "publishedAt": "2020-01-11T04:03:59Z",
+      "content": "Iran's military says it \"unintentionally\" shot down a Ukrainian passenger jet, Iran's state TV reports.\r\nThe statement, released on Saturday morning, said it had done so due to \"human error\".\r\nThose responsible would be held accountable, the statement read on… [+455 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "Sultan Qaboos of Oman dies aged 79",
+      "description": "The sultan deposed his father in a bloodless coup in 1970 and then set Oman on a path to development.",
+      "url": "http://www.bbc.co.uk/news/world-middle-east-50902476",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/6C5B/production/_110293772_mediaitem110293766.jpg",
+      "publishedAt": "2020-01-11T00:30:26Z",
+      "content": "Image copyrightReutersImage caption\r\n Sultan Qaboos completely dominated the political life of Oman for almost 50 years\r\nSultan Qaboos bin Said Al Said of Oman, the Arab world's longest-serving ruler, has died aged 79, state media says.\r\nLast month he returne… [+3714 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "'I was trafficked for sex by my best friend'",
+      "description": "Grizelda Grootboom was tricked into sex trafficking by a \"friend\" and has written about her ordeal.",
+      "url": "http://www.bbc.co.uk/news/world-africa-51056541",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/46C2/production/_110441181_p08013m0.jpg",
+      "publishedAt": "2020-01-11T00:20:06Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "Why were so many Canadians on doomed Iran plane?",
+      "description": "A number of questions remain unresolved about Ukraine International Airlines flight PS752.",
+      "url": "http://www.bbc.co.uk/news/world-us-canada-51053220",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/11E8B/production/_110455337_gettyimages-1192656820.jpg",
+      "publishedAt": "2020-01-10T18:32:13Z",
+      "content": "Image copyrightAnadolu Agency via Getty ImagesImage caption\r\n Vigils were held across the country on Wednesday with more planned\r\nUkraine International Airlines flight PS752 crashed shortly after taking off from the Iranian capital Tehran on Wednesday, killin… [+8029 chars]"
+    }
+  ]
+}

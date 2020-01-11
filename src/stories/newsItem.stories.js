@@ -1,5 +1,5 @@
 import React from 'react';
-import NewsItem from '../components/newsItem/newsItem';
+import NewsItem from '../components/news/newsItem';
 import { storiesOf } from '@storybook/react';
 
 const item = {

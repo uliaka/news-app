@@ -6,7 +6,8 @@ import store from './redux/store.js';
 import App from './App';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from 'react-redux';
-import Login from '../src/components/login/Login'
+import Login from '../src/components/login/Login';
+import NewListPages from '../src/pages/newsListPage'
 
 function RouterComponent() {
   return (
@@ -15,6 +16,7 @@ function RouterComponent() {
         <Switch>
           <Route exact path="/" component={App} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/news" component={NewListPages} />
         </Switch>
       </Router>
     </Provider>

@@ -16,7 +16,6 @@ const ImageSection = styled.div`
 `
 const Image = styled.img`
   width: 100%;
-  max-height: 150px;
 `
 const Title = styled.div`
   padding: 10px;
@@ -61,9 +60,9 @@ const NewsItem = (props) => {
       </Description>
       <InfoSection>
         <Info>{item.source["name"]}</Info>
-        <Dot/>
+        <Dot />
         <Info>{item.author}</Info>
-        <Dot/>
+        <Dot />
         <Info>{moment(item.publishedAt).fromNow()}</Info>
       </InfoSection>
     </ItemContainer>
