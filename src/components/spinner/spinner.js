@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-
 const SpinnerContainer = styled.div`
   width: 50px;
   height: 50px;
@@ -9,6 +8,7 @@ const SpinnerContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 `
 
 const spin = keyframes`
@@ -31,7 +31,7 @@ const SpinnerSection = styled.div`
 
 const Spinner = () => (
   <SpinnerContainer>
-    <SpinnerSection/>
+    <SpinnerSection />
   </SpinnerContainer>
 )
 

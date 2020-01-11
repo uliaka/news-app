@@ -6,15 +6,15 @@ const initialState = {
 
 const todoReducer = (state = initialState, action) => {
   switch (action.type) {
-    case Types.GET_NEWS: {
+    case Types.IS_AUTHENTICATED: {
       return {
         ...state,
-        news: state.news.concat([{
-          ...action.payload
-        }])
-      };
+        isAuthenticated: action.payload,
+      }
     }
-  };
+    default:
+      return state;
+  }
 }
 
 export default todoReducer;

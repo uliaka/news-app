@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
 import rootReducer from './reducer.js';
-
+import localStorage from '../localStorage.js';
 
 const initialState = {
   news: [
@@ -8,18 +8,21 @@ const initialState = {
     id: 1,
     title: 'First item',
   },
-  {
-    id: 2,
-    title: 'Second item',
-  },
 ],
-activeItem: null,
+isAuthenticated: false,
 };
 
+const persistedState = localStorage.loadState() ? localStorage.loadState() : initialState;
 const store = createStore(
   rootReducer,
-  initialState
+  persistedState
 );
+store.subscribe(() => {
+  localStorage.saveState({
+    items: store.getState().items,
+    isAuthenticated: store.getState().isAuthenticated
+  });
+});
 
 export default store;
 

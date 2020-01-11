@@ -4,7 +4,12 @@ import React, { useState, useEffect } from 'react'
 const checkAuthorized = (username, password) => new Promise((resolve, reject) => {
   setTimeout(() => {
     if (username === 'admin' && password === '12345') {
-      resolve()
+      resolve({
+        firstName: 'first name',
+        lastName: 'last name',
+        email: 'email@gmail.com',
+        username: 'admin',
+      })
     } else {
       reject('Invalid username or password')
     }
