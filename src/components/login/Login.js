@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import useLogin from './useLogin.js';
 import Types from '../../redux/types';
+import { Route, Redirect } from 'react-router-dom'
 
 const LoginContainer = styled.form`
   box-shadow: 0px 0px 6px 3px rgba(219,219,219,1);
@@ -55,18 +56,16 @@ const LoginButton = styled.div`
   background: #A287DB;
   color: white;
 `
-const LoginPage = () => {
+const LoginPage = (props) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [result, loading, error, login] = useLogin()
   const dispatch = useDispatch();
 
   if (result) {
-      dispatch({ type: Types.IS_AUTHENTICATED, payload: true })
-      // dispatch action with payload to redux using useDispatch from react-redux
-      // redirect to other page
-      // save userData to localstorage
-    }
+    dispatch({ type: Types.IS_AUTHENTICATED, payload: true })
+    return <Redirect to={{ pathname: '/news' }} />
+  }
   return (
     <LoginContainer>
       <TextLogin>Login</TextLogin>
