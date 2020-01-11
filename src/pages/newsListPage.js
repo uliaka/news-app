@@ -4,12 +4,12 @@ import useFetchData from './useFetchData';
 import Spinner from '../components/spinner/spinner';
 
 const NewsListPage = () => {
-const [result, loading, error] = useFetchData();
-const items = (result && result.articles) || [];
+  const [result, loading, error] = useFetchData();
+  const items = (result && result.articles) || [];
   return (
     <>
-    <Spinner/>
-    <NewsList items={items} />
+      <NewsList items={items} />
+      {loading && <Spinner />}
     </>
   );
 }

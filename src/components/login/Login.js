@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import useLogin from './useLogin.js';
+import Types from '../../redux/types';
 
-const LoginContainer = styled.div`
+const LoginContainer = styled.form`
   box-shadow: 0px 0px 6px 3px rgba(219,219,219,1);
   text-align: center;
   padding: 20px;
@@ -57,34 +59,46 @@ const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [result, loading, error, login] = useLogin()
+  const dispatch = useDispatch();
 
+  if (result) {
+      dispatch({ type: Types.IS_AUTHENTICATED, payload: true })
+      // dispatch action with payload to redux using useDispatch from react-redux
+      // redirect to other page
+      // save userData to localstorage
+    }
   return (
     <LoginContainer>
       <TextLogin>Login</TextLogin>
       <InputContainer>
         {error && <ErrorContainer>{error}</ErrorContainer>}
         <InputLabel>Username</InputLabel>
-        <InputSection 
-           placeholder='Type your username'
-           type='text'
-           value={username}
-           onChange={(e)=> setUsername(e.target.value)}
+        <InputSection
+          placeholder='Type your username'
+          type='text'
+          name="username"
+          autoComplete="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         />
       </InputContainer>
       <InputContainer>
         <InputLabel>Password</InputLabel>
-        <InputSection 
-           placeholder='Type your password'
-           type='password'
-           value={password}
-           onChange={(e)=> setPassword(e.target.value)}
+        <InputSection
+          placeholder='Type your password'
+          type='password'
+          value={password}
+          name="password"
+          autoComplete="current-password"
+          onChange={(e) => setPassword(e.target.value)}
         />
       </InputContainer>
-      <LoginButton disabled={loading} onClick={(e)=> login(username, password)}>
+      <LoginButton disabled={loading} onClick={(e) => login(username, password)}>
         {loading ? 'Logging in...' : 'Log in'}
       </LoginButton>
     </LoginContainer>
   );
 }
 
-export default LoginPage
+export default LoginPage;
+

@@ -7,16 +7,17 @@ import App from './App';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from 'react-redux';
 import Login from '../src/components/login/Login';
-import NewListPages from '../src/pages/newsListPage'
+import NewListPage from '../src/pages/newsListPage';
+import PrivateRoute from '../src/components/privateRoute/privateRoute';
 
 function RouterComponent() {
   return (
     <Provider store={store}>
       <Router>
         <Switch>
-          <Route exact path="/" component={App} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/news" component={NewListPages} />
+          <Route exact path='/' component={App} />
+          <Route exact path='/login' component={Login} />
+          <PrivateRoute path='/news' component={NewListPage}/>
         </Switch>
       </Router>
     </Provider>
