@@ -11,7 +11,7 @@ const checkAuthorized = (username, password) => new Promise((resolve, reject) =>
   }, 1000)
 })
 
-const useLogin = (username, password) => {
+const useLogin = () => {
   const [result, setResult] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
