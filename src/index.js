@@ -9,17 +9,19 @@ import { Provider } from 'react-redux';
 import Login from '../src/components/login/Login';
 import NewListPage from '../src/pages/newsListPage';
 import PrivateRoute from '../src/components/privateRoute/privateRoute';
-import TopNAvBar from '../src/components/topNavBar/NavBar';
+import TopNavBar from '../src/components/topNavBar/NavBar';
+import Profile from '../src/components/profile/Profile';
 
 function RouterComponent() {
   return (
     <Provider store={store}>
-      <TopNAvBar/>
       <Router>
+      <TopNavBar/>
         <Switch>
           <Route exact path='/' component={App} />
           <Route exact path='/login' component={Login} />
           <PrivateRoute path='/news' component={NewListPage}/>
+          <PrivateRoute path='/profile' component={Profile}/>
         </Switch>
       </Router>
     </Provider>

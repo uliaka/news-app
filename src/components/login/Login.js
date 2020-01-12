@@ -55,6 +55,7 @@ const LoginButton = styled.div`
   line-height: 20px;
   background: #A287DB;
   color: white;
+  cursor: pointer;
 `
 const LoginPage = (props) => {
   const [username, setUsername] = useState('');
@@ -64,6 +65,7 @@ const LoginPage = (props) => {
 
   if (result) {
     dispatch({ type: Types.IS_AUTHENTICATED, payload: true })
+    dispatch({ type: Types.USER_INFO, payload: result})
     return <Redirect to={{ pathname: '/news' }} />
   }
   return (

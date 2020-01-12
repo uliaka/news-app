@@ -9,6 +9,7 @@ const initialState = {
       title: 'First item',
     },
   ],
+  user: {},
   isAuthenticated: false,
 };
 
@@ -19,7 +20,8 @@ const store = createStore(
 );
 store.subscribe(() => {
   localStorage.saveState({
-    items: store.getState().items,
+    news: store.getState().news,
+    user: store.getState().user,
     isAuthenticated: store.getState().isAuthenticated
   });
 });

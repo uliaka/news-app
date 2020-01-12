@@ -12,6 +12,13 @@ const todoReducer = (state = initialState, action) => {
         isAuthenticated: action.payload,
       }
     }
+    case Types.USER_INFO: {
+      console.log('action.payload', action.payload)
+      return {
+        ...state,
+        user: action.payload,
+      }
+    }
     default:
       return state;
   }
