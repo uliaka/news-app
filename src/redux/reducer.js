@@ -13,6 +13,12 @@ const todoReducer = (state = initialState, action) => {
       }
     }
     case Types.USER_INFO: {
+      return {
+        ...state,
+        user: action.payload,
+      }
+    }
+    case Types.UPDATE_USER_INFO: {
       console.log('action.payload', action.payload)
       return {
         ...state,

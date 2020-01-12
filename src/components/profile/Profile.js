@@ -1,17 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons'
 
-const ProfileContainer = styled.div`
-  box-shadow: 0px 0px 6px 3px rgba(219,219,219,1);
-  padding: 20px;
-  max-width: 400px;
-  height: 400px;
-  flex-wrap: wrap;
-  display: flex;
-  margin: auto;
-  margin-top: 20px;
-`
 const ProfileImage = styled.div`
   width: 50px;
   height: 150px;
@@ -28,11 +20,17 @@ const Label = styled.div`
   font-size: 15px;
   color: grey;
 `
+const EditBtn = styled.div`
+  background-color: yellow;
+  width: 20px;
+  height: 20px;
+  padding: 5px 15px;
+`
 
 const Profile = (props) => {
   const user = useSelector(state => state.user)
   return (
-    <ProfileContainer>
+    <>
       <ProfileImage />
       <ProfileInfo>
         <Label>
@@ -52,7 +50,10 @@ const Profile = (props) => {
         </Label>
         {user.email}
       </ProfileInfo>
-    </ProfileContainer>
+      <EditBtn onClick={props.onEdit}>
+        <FontAwesomeIcon icon={faPencilAlt} />
+      </EditBtn>
+    </>
   );
 }
 

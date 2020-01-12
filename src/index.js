@@ -10,7 +10,7 @@ import Login from '../src/components/login/Login';
 import NewListPage from '../src/pages/newsListPage';
 import PrivateRoute from '../src/components/privateRoute/privateRoute';
 import TopNavBar from '../src/components/topNavBar/NavBar';
-import Profile from '../src/components/profile/Profile';
+import ProfileContainer from '../src/components/profile/ProfileContainer';
 
 function RouterComponent() {
   return (
@@ -21,7 +21,7 @@ function RouterComponent() {
           <Route exact path='/' component={App} />
           <Route exact path='/login' component={Login} />
           <PrivateRoute path='/news' component={NewListPage}/>
-          <PrivateRoute path='/profile' component={Profile}/>
+          <PrivateRoute path='/profile' component={ProfileContainer}/>
         </Switch>
       </Router>
     </Provider>
