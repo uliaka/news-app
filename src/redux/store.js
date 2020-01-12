@@ -5,11 +5,11 @@ import localStorage from '../localStorage.js';
 const initialState = {
   news: [
     {
-    id: 1,
-    title: 'First item',
-  },
-],
-isAuthenticated: false,
+      id: 1,
+      title: 'First item',
+    },
+  ],
+  isAuthenticated: false,
 };
 
 const persistedState = localStorage.loadState() ? localStorage.loadState() : initialState;
