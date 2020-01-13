@@ -46,16 +46,12 @@ const ErrorSection = styled.div`
 `
 const EditProfile = (props) => {
   const { user } = props
-  const [inputs, handleInputChange, handleSubmit, errors, valid] = useForm({ ...user })
   const dispatch = useDispatch();
-
   const onSubmit = () => {
-    handleSubmit()
-    if (valid) {
       dispatch({ type: Types.UPDATE_USER_INFO, payload: inputs })
       props.onSubmit()
-    }
   }
+  const [inputs, handleInputChange, handleSubmit, errors ] = useForm({ ...user }, onSubmit)
 
   return (
     <EditContainer>
@@ -107,7 +103,7 @@ const EditProfile = (props) => {
           <ErrorSection>{errors.email}</ErrorSection>
         )}
       </EditInputSection>
-      <SaveEditBtn onClick={(e) => onSubmit(e)}>
+      <SaveEditBtn onClick={handleSubmit}>
         Save
         <FontAwesomeIcon style={{ marginLeft: '5px' }} icon={faSave} />
       </SaveEditBtn>

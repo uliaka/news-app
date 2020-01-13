@@ -25,18 +25,21 @@ const validate = (values) => {
   return errors;
 };
 
-const useForm = (initialState) => {
+const useForm = (initialState, callback) => {
   const [values, setValues] = useState(initialState);
   const [errors, setErrors] = useState({});
-  const [isValid, setIsValid] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (Object.keys(errors).length === 0 && isSubmitting) {
+      callback();
+    }
+  }, [errors]);
 
   const handleSubmit = () => {
     const errors = validate(values)
     setErrors(errors)
-    if (Object.keys(errors).length === 0) {
-      setIsValid(false)
-    }
-    setIsValid(true);
+    setIsSubmitting(true)
   };
   const handleChange = (event) => {
     setValues({
@@ -44,7 +47,7 @@ const useForm = (initialState) => {
       [event.target.name]: event.target.value
     });
   };
-  return [values, handleChange, handleSubmit, errors, isValid]
+  return [values, handleChange, handleSubmit, errors]
 };
 
 export default useForm;
