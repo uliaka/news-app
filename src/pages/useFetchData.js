@@ -1,12 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import data from './data'
+import { useState, useEffect } from 'react';
 
+const url = 'https://newsapi.org/v2/top-headlines?' +
+  'country=us&' +
+  'apiKey=f5028aa71fe0479980eaa4a7290790d0';
 
-const fetchData = () => new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve(data)
-  }, 1000)
-})
+const fetchData = async () => {
+  try {
+    let response = await fetch(url);
+    return await response.json();
+  } catch(err) {
+    console.error(err);
+  }
+}
 
 const useFetchData = () => {
   const [result, setResult] = useState(null)

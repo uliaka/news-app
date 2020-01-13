@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import NewsList from '../components/news/newsList'
+import NewsList from '../components/news/NewsList'
 import useFetchData from './useFetchData';
 import Spinner from '../components/spinner/spinner';
 
