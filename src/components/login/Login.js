@@ -15,6 +15,7 @@ const LoginContainer = styled.div`
   flex-direction: column;
   display: flex;
   margin: auto;
+  margin-top: 20px;
 `
 const ErrorContainer = styled.div`
   font-size: 20px;
@@ -66,7 +67,7 @@ const LoginPage = (props) => {
   if (result) {
     dispatch({ type: Types.IS_AUTHENTICATED, payload: true })
     dispatch({ type: Types.USER_INFO, payload: result})
-    return <Redirect to={{ pathname: '/news' }} />
+    return <Redirect to={{ pathname: '/profile' }} />
   }
   return (
     <LoginContainer>

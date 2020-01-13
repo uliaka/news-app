@@ -1,5 +1,4 @@
-import { useState } from 'react'
-
+import { useState } from 'react';
 
 const checkAuthorized = (username, password) => new Promise((resolve, reject) => {
   setTimeout(() => {

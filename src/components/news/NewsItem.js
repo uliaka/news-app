@@ -28,6 +28,8 @@ const Title = styled.div`
 const Description = styled.div`
   padding: 10px;
   max-height: 200px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 `
 const InfoSection = styled.div`
   display: flex;

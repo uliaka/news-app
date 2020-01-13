@@ -12,7 +12,6 @@ const initialState = {
   user: {},
   isAuthenticated: false,
 };
-
 const persistedState = localStorage.loadState() ? localStorage.loadState() : initialState;
 const store = createStore(
   rootReducer,

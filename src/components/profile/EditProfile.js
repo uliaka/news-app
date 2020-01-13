@@ -38,6 +38,9 @@ const SaveEditBtn = styled.div`
   background: #A287DB;
   color: white;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 2px 10px;
 `
 const ErrorSection = styled.div`
   color: red;
