@@ -15,9 +15,6 @@ const item = {
   "publishedAt": "2020-01-10T13:00:00Z",
   "content": "For some time, American companies including Microsoft, Google, and IBM have established research labs in China to tap into local AI talent and to keep track of technological trends. Now, as tensions and restrictions continue to ramp up, some observers wonder … [+4470 chars]"
 }
-export default {
-  title: 'news item',
-};
 
 storiesOf('NewsItem', module)
   .add('NewsItem', () => <NewsItem item={item} />);

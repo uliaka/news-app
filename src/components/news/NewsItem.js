@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import moment from 'moment'
 
@@ -10,12 +10,15 @@ const ItemContainer = styled.div`
   flex-wrap: wrap;
   flex-direction: column;
   margin: auto;
+  margin-top: 20px;
 `
 const ImageSection = styled.div`
   text-align: center;
+  flex: 1;
 `
 const Image = styled.img`
-  width: 100%;
+  max-width: 400px;
+  max-height: 200px;
 `
 const Title = styled.div`
   padding: 10px;
@@ -44,7 +47,7 @@ const Dot = styled.div`
 `
 
 const NewsItem = (props) => {
-  const { item } = props
+  const { item } = props;
   return (
     <ItemContainer>
       <ImageSection>
@@ -60,8 +63,12 @@ const NewsItem = (props) => {
       </Description>
       <InfoSection>
         <Info>{item.source["name"]}</Info>
-        <Dot />
-        <Info>{item.author}</Info>
+        {item.author &&
+          <>
+            <Dot />
+            <Info>{item.author}</Info>
+          </>
+        }
         <Dot />
         <Info>{moment(item.publishedAt).fromNow()}</Info>
       </InfoSection>
