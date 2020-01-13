@@ -19,7 +19,6 @@ const todoReducer = (state = initialState, action) => {
       }
     }
     case Types.UPDATE_USER_INFO: {
-      console.log('action.payload', action.payload)
       return {
         ...state,
         user: action.payload,

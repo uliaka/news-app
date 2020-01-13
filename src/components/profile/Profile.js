@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPencilAlt } from '@fortawesome/free-solid-svg-icons'
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 
 const ProfileImage = styled.div`
   width: 50px;
@@ -25,6 +25,7 @@ const EditBtn = styled.div`
   width: 20px;
   height: 20px;
   padding: 5px 15px;
+  cursor: pointer;
 `
 
 const Profile = (props) => {

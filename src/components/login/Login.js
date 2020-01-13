@@ -5,7 +5,7 @@ import useLogin from './useLogin.js';
 import Types from '../../redux/types';
 import { Route, Redirect } from 'react-router-dom'
 
-const LoginContainer = styled.form`
+const LoginContainer = styled.div`
   box-shadow: 0px 0px 6px 3px rgba(219,219,219,1);
   text-align: center;
   padding: 20px;
