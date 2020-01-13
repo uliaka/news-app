@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import NewsItem from './newsItem'
+import NewsItem from './NewsItem'
 
 const ListContainer = styled.div`
   display: flex;

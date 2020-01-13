@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from 'react-redux';
 import Login from '../src/components/login/Login';
 import NewListPage from '../src/pages/newsListPage';
-import PrivateRoute from '../src/components/privateRoute/privateRoute';
+import PrivateRoute from '../src/components/privateRoute/PrivateRoute';
 import TopNavBar from '../src/components/topNavBar/NavBar';
 import ProfileContainer from '../src/components/profile/ProfileContainer';
 
