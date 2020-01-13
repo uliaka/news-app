@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Types from '../../redux/types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave } from '@fortawesome/free-solid-svg-icons';
 import useInputChange from './useInputChange';
+import useForm from './useForm'
 
 
 const EditContainer = styled.div`
@@ -23,7 +24,7 @@ const EditInputSection = styled.div`
 const EditInput = styled.input`
   border: none;
   width: 100%;
-  margin: 10px 0 10px 0;
+  margin-top: 10px;
   font-size: 14px;
   &:focus {
     outline: none;
@@ -38,14 +39,22 @@ const SaveEditBtn = styled.div`
   color: white;
   cursor: pointer;
 `
+const ErrorSection = styled.div`
+  color: red;
+  width: 100%;
+  font-size: 12px;
+`
 const EditProfile = (props) => {
   const { user } = props
-  const [inputs, handleInputChange] = useInputChange({...user})
+  const [inputs, handleInputChange, handleSubmit, errors, valid] = useForm({ ...user })
   const dispatch = useDispatch();
-  
+
   const onSubmit = () => {
-    dispatch({ type: Types.UPDATE_USER_INFO, payload: inputs })
-    props.onSubmit()
+    handleSubmit()
+    if (valid) {
+      dispatch({ type: Types.UPDATE_USER_INFO, payload: inputs })
+      props.onSubmit()
+    }
   }
 
   return (
@@ -58,6 +67,9 @@ const EditProfile = (props) => {
           name='firstName'
           onChange={handleInputChange}
         />
+        {errors.firstName && (
+          <ErrorSection>{errors.firstName}</ErrorSection>
+        )}
       </EditInputSection>
       <EditInputSection>
         <EditInputLabel>Last Name</EditInputLabel>
@@ -67,28 +79,37 @@ const EditProfile = (props) => {
           value={inputs.lastName}
           onChange={handleInputChange}
         />
+        {errors.lastName && (
+          <ErrorSection>{errors.lastName}</ErrorSection>
+        )}
       </EditInputSection>
       <EditInputSection>
-      <EditInputLabel>Username</EditInputLabel>
+        <EditInputLabel>Username</EditInputLabel>
         <EditInput
           type='text'
           name='username'
           value={inputs.username}
           onChange={handleInputChange}
         />
+        {errors.username && (
+          <ErrorSection>{errors.username}</ErrorSection>
+        )}
       </EditInputSection>
       <EditInputSection>
-      <EditInputLabel>Email</EditInputLabel>
+        <EditInputLabel>Email</EditInputLabel>
         <EditInput
           type='email'
           name='email'
           value={inputs.email}
           onChange={handleInputChange}
         />
+        {errors.email && (
+          <ErrorSection>{errors.email}</ErrorSection>
+        )}
       </EditInputSection>
-      <SaveEditBtn onClick={onSubmit}>
-        Save 
-        <FontAwesomeIcon style={{marginLeft: '5px'}} icon={faSave}/>
+      <SaveEditBtn onClick={(e) => onSubmit(e)}>
+        Save
+        <FontAwesomeIcon style={{ marginLeft: '5px' }} icon={faSave} />
       </SaveEditBtn>
     </EditContainer>
   );
