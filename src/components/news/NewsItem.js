@@ -11,6 +11,7 @@ const ItemContainer = styled.div`
   flex-direction: column;
   margin: auto;
   margin-top: 20px;
+  cursor: pointer;
 `
 const ImageSection = styled.div`
   text-align: center;
@@ -50,8 +51,9 @@ const Dot = styled.div`
 
 const NewsItem = (props) => {
   const { item } = props;
+  const onClickItem = () => window.open(item.url, "_blank");
   return (
-    <ItemContainer>
+    <ItemContainer onClick={onClickItem}>
       <ImageSection>
         <Image
           src={item.urlToImage}
