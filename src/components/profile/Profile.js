@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { faPencilAlt, faUser, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const ProfileSection = styled.div`
   display: flex;
@@ -10,8 +9,9 @@ const ProfileSection = styled.div`
   flex-direction: column;
 `
 const ProfileInfoSection = styled.div`
-  height: 50px;
-  background-color: #D3D3D3;
+  height: max-content;
+  margin: 0px -20px 0 -20px;
+  background-color: #EDEDED;
   flex: 2;
   justify-content: center;
   align-items: center;
@@ -36,25 +36,35 @@ const ProfileInfo = styled.div`
 `
 const ProfileDetailsItem = styled.div`
   display: flex;
-  flex-direction: column;
-  flex: 3;
+  border-bottom: 1px solid #D3D3D3;
+  padding-bottom: 20px;
 `
 const ProfileName = styled.span`
   font-size: 25px;
   font-weight: bold;
   margin: 0px 5px;
+  @media(max-width: 520px) {
+    font-size: 20px;
+  }
 `
 const Label = styled.div`
   font-size: 15px;
   color: grey;
-  margin-top: 10px;
+  margin: 15px 0 15px 0;
+`
+const TextProfile = styled.div`
+  font-size: 15px;
+  margin-left: 10px;
 `
 const EditBtn = styled.div`
-  background-color: yellow;
+  background-color: #A287DB;
+  border-radius: 10px;
+  color: white;
   width: 20px;
   height: 20px;
   padding: 5px 15px;
   cursor: pointer;
+  margin-top: 10px;
 `
 
 const Profile = (props) => {
@@ -64,22 +74,28 @@ const Profile = (props) => {
       <ProfileInfoSection>
         <ProfileImage />
         <ProfileInfo>
-         <ProfileName>{user.firstName}</ProfileName>
-         <ProfileName>{user.lastName}</ProfileName>
+          <ProfileName>{user.firstName}</ProfileName>
+          <ProfileName>{user.lastName}</ProfileName>
         </ProfileInfo>
       </ProfileInfoSection>
       <ProfileDetails>
         <Label>
           Username
         </Label>
-        {user.username}
+        <ProfileDetailsItem>
+          <FontAwesomeIcon color='#A287DB' icon={faUser} />
+          <TextProfile>{user.username}</TextProfile>
+        </ProfileDetailsItem>
         <Label>
           Email
         </Label>
-        {user.email}
+        <ProfileDetailsItem>
+          <FontAwesomeIcon color='#A287DB' icon={faEnvelope} />
+          <TextProfile>{user.email}</TextProfile>
+        </ProfileDetailsItem>
       </ProfileDetails>
       <EditBtn onClick={props.onEdit}>
-        <FontAwesomeIcon icon={faPencilAlt}/>
+        <FontAwesomeIcon icon={faPencilAlt} />
       </EditBtn>
     </ProfileSection>
   );

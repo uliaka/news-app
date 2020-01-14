@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import useLogin from './useLogin.js';
-import Types from '../../redux/types';
-import { Route, Redirect } from 'react-router-dom'
+import Types from '../redux/types';
+import { Redirect } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faKey } from '@fortawesome/free-solid-svg-icons';
 
 const LoginContainer = styled.div`
   box-shadow: 0px 0px 6px 3px rgba(219,219,219,1);
@@ -36,10 +38,14 @@ const InputContainer = styled.div`
   text-align: left;
   margin: 20px;
 `
-const InputSection = styled.input`
+const InputSection = styled.div`
+  display: flex;
+  align-items: center;
+`
+const InputLogin = styled.input`
   border: none;
   width: 100%;
-  margin: 10px 0 10px 0;
+  margin: 10px 0px 10px 10px;
   font-size: 15px;
   line-height: 20px;
   &:focus {
@@ -58,7 +64,7 @@ const LoginButton = styled.div`
   color: white;
   cursor: pointer;
 `
-const LoginPage = (props) => {
+const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [result, loading, error, login] = useLogin()
@@ -66,34 +72,40 @@ const LoginPage = (props) => {
 
   if (result) {
     dispatch({ type: Types.IS_AUTHENTICATED, payload: true })
-    dispatch({ type: Types.USER_INFO, payload: result})
+    dispatch({ type: Types.USER_INFO, payload: result })
     return <Redirect to={{ pathname: '/profile' }} />
   }
   return (
     <LoginContainer>
-      <TextLogin>Login</TextLogin>
+      <TextLogin>Log in</TextLogin>
+      {error && <ErrorContainer>{error}</ErrorContainer>}
       <InputContainer>
-        {error && <ErrorContainer>{error}</ErrorContainer>}
         <InputLabel>Username</InputLabel>
-        <InputSection
-          placeholder='Type your username'
-          type='text'
-          name="username"
-          autoComplete="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
+        <InputSection>
+          <FontAwesomeIcon icon={faUser} />
+          <InputLogin
+            placeholder='Type your username'
+            type='text'
+            name="username"
+            autoComplete="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </InputSection>
       </InputContainer>
       <InputContainer>
         <InputLabel>Password</InputLabel>
-        <InputSection
-          placeholder='Type your password'
-          type='password'
-          value={password}
-          name="password"
-          autoComplete="current-password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <InputSection>
+          <FontAwesomeIcon icon={faKey} />
+          <InputLogin
+            placeholder='Type your password'
+            type='password'
+            value={password}
+            name="password"
+            autoComplete="current-password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </InputSection>
       </InputContainer>
       <LoginButton disabled={loading} onClick={(e) => login(username, password)}>
         {loading ? 'Logging in...' : 'Log in'}

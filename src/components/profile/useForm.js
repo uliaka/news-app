@@ -4,16 +4,22 @@ const validate = (values) => {
   let errors = {};
   if (!values.firstName) {
     errors.firstName = 'First name is required';
+  } else if (values.firstName.length > 15) {
+    errors.firstName = 'First name is too long (maximum is 15 characters)';
   } else if (!/^[a-zA-Z]+$/.test(values.firstName)) {
     errors.firstName = 'Invalid first name format';
   }
   if (!values.lastName) {
     errors.lastName = 'Last name is required';
+  } else if (values.lastName.length > 15) {
+    errors.lastName = 'Last name is too long (maximum is 15 characters)';
   } else if (!/^[a-zA-Z]+$/.test(values.lastName)) {
     errors.lastName = 'Invalid last name format';
   }
   if (!values.username) {
     errors.username = 'Username is required';
+  } else if (values.username.length > 20) {
+    errors.username = 'Username is too long (maximum is 20 characters)';
   } else if (!/^[a-zA-Z]+$/.test(values.username)) {
     errors.username = 'Invalid username format';
   }

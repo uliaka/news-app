@@ -15,6 +15,7 @@ const EditContainer = styled.div`
 `
 const EditInputLabel = styled.div`
   font-size: 16px;
+  color: grey;
 `
 const EditInputSection = styled.div`
   border-bottom: 1px solid #D1D1D1;
@@ -32,7 +33,6 @@ const EditInput = styled.input`
 `
 const SaveEditBtn = styled.div`
   margin: 10px;
-  padding: 10px;
   text-align: center;
   font-size: 16px;
   background: #A287DB;
@@ -41,7 +41,21 @@ const SaveEditBtn = styled.div`
   display: flex;
   align-items: center;
   padding: 2px 10px;
+  border-radius: 10px;
 `
+const CancelEditBtn = styled.div`
+  margin: 10px;
+  text-align: center;
+  font-size: 16px;
+  background: #FB8888;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 2px 10px;
+  border-radius: 10px;
+`
+
 const ErrorSection = styled.div`
   color: red;
   width: 100%;
@@ -51,10 +65,10 @@ const EditProfile = (props) => {
   const { user } = props
   const dispatch = useDispatch();
   const onSubmit = () => {
-      dispatch({ type: Types.UPDATE_USER_INFO, payload: inputs })
-      props.onSubmit()
+    dispatch({ type: Types.UPDATE_USER_INFO, payload: inputs })
+    props.onSubmit()
   }
-  const [inputs, handleInputChange, handleSubmit, errors ] = useForm({ ...user }, onSubmit)
+  const [inputs, handleInputChange, handleSubmit, errors] = useForm({ ...user }, onSubmit)
 
   return (
     <EditContainer>
@@ -110,6 +124,9 @@ const EditProfile = (props) => {
         Save
         <FontAwesomeIcon style={{ marginLeft: '5px' }} icon={faSave} />
       </SaveEditBtn>
+      <CancelEditBtn onClick={props.onCancel}>
+        Cancle
+      </CancelEditBtn>
     </EditContainer>
   );
 }

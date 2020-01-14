@@ -6,7 +6,7 @@ import store from './redux/store.js';
 import App from './App';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from 'react-redux';
-import Login from '../src/components/login/Login';
+import LoginPage from '../src/pages/loginPage';
 import NewListPage from '../src/pages/newsListPage';
 import PrivateRoute from '../src/components/privateRoute/PrivateRoute';
 import TopNavBar from '../src/components/topNavBar/NavBar';
@@ -19,7 +19,7 @@ function RouterComponent() {
       <TopNavBar/>
         <Switch>
           <Route exact path='/' component={App} />
-          <Route exact path='/login' component={Login} />
+          <Route exact path='/login' component={LoginPage} />
           <PrivateRoute path='/news' component={NewListPage}/>
           <PrivateRoute path='/profile' component={ProfileContainer}/>
         </Switch>

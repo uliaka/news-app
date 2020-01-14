@@ -4,8 +4,8 @@ const checkAuthorized = (username, password) => new Promise((resolve, reject) =>
   setTimeout(() => {
     if (username === 'admin' && password === '12345') {
       resolve({
-        firstName: 'first name',
-        lastName: 'last name',
+        firstName: 'Firstname',
+        lastName: 'Lastname',
         email: 'email@gmail.com',
         username: 'admin',
       })
