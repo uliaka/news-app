@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import Types from '../redux/types';
@@ -25,12 +25,17 @@ const NewsListContainer = styled.div`
 `
 
 const NewsListPage = () => {
-  const dispatch = useDispatch();
   const scrollRef = useRef({});
   const [page, setPage] = useState(1)
+  const [items, setItems] = useState([])
   const [query, setQuery] = useState('');
   const [result, loading, error] = useFetchData(query, page);
-  const items = (result && result.articles) || [];
+
+  useEffect(() => {
+    if (result && result.articles) {
+      setItems(items.concat(result.articles))
+    } 
+  }, [result])
 
   const handleScroll = () => {
     const scroll = scrollRef.current
@@ -39,9 +44,7 @@ const NewsListPage = () => {
       setPage(page + 1)
     }
   }
-  if (items.length > 0) {
-    dispatch({ type: Types.SET_NEWS, payload: items })
-  }
+  console.log('items', items)
 
   return (
     <>
