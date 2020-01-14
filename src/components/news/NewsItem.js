@@ -15,6 +15,7 @@ const ItemContainer = styled.div`
 `
 const ImageSection = styled.div`
   text-align: center;
+  max-width: 400px;
   flex: 1;
 `
 const Image = styled.img`
@@ -23,17 +24,20 @@ const Image = styled.img`
 `
 const Title = styled.div`
   padding: 10px;
+  max-width: 400px;
   font-size: 20px;
   font-weight: bold;
 `
 const Description = styled.div`
   padding: 10px;
   max-height: 200px;
+  max-width: 400px;
   overflow-wrap: break-word;
   word-wrap: break-word;
 `
 const InfoSection = styled.div`
   display: flex;
+  max-width: 400px;
   align-items: center;
   padding: 10px;
 `
