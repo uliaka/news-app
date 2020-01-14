@@ -6,7 +6,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 const SearchSection = styled.div`
   border: 1px solid grey;
   border-radius: 8px;
-  width: 400px;
+  max-width: 400px;
   height: 40px;
   color: grey;
   display: flex;
