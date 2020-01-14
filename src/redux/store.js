@@ -3,14 +3,9 @@ import rootReducer from './reducer.js';
 import localStorage from '../localStorage.js';
 
 const initialState = {
-  news: [
-    {
-      id: 1,
-      title: 'First item',
-    },
-  ],
   user: {},
   isAuthenticated: false,
+  items: [],
 };
 const persistedState = localStorage.loadState() ? localStorage.loadState() : initialState;
 const store = createStore(
@@ -19,11 +14,11 @@ const store = createStore(
 );
 store.subscribe(() => {
   localStorage.saveState({
-    news: store.getState().news,
     user: store.getState().user,
-    isAuthenticated: store.getState().isAuthenticated
+    isAuthenticated: store.getState().isAuthenticated,
+    items: store.getState().items,
   });
 });
-
+console.log('state', store.getState().items)
 export default store;
 
