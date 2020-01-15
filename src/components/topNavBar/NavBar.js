@@ -74,7 +74,7 @@ const NavBar = () => {
           <Profile>
             <Link to='/profile'>
               Profile
-              </Link>
+            </Link>
           </Profile>
           <Logout />
         </ProfileContainer>
