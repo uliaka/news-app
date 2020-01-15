@@ -4,8 +4,7 @@ import styled from 'styled-components';
 import Types from '../../redux/types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave } from '@fortawesome/free-solid-svg-icons';
-import useForm from './useForm'
-
+import useForm from './useForm';
 
 const EditContainer = styled.div`
   flex-wrap: wrap;
@@ -61,13 +60,13 @@ const ErrorSection = styled.div`
   font-size: 12px;
 `
 const EditProfile = (props) => {
-  const { user } = props
+  const { user } = props;
   const dispatch = useDispatch();
   const onSubmit = () => {
-    dispatch({ type: Types.UPDATE_USER_INFO, payload: inputs })
-    props.onSubmit()
+    dispatch({ type: Types.UPDATE_USER_INFO, payload: inputs });
+    props.onSubmit();
   }
-  const [inputs, handleInputChange, handleSubmit, errors] = useForm({ ...user }, onSubmit)
+  const [inputs, handleInputChange, handleSubmit, errors] = useForm({ ...user }, onSubmit);
 
   return (
     <EditContainer>
@@ -131,4 +130,3 @@ const EditProfile = (props) => {
 }
 
 export default EditProfile;
-

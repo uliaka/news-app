@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import Profile from './Profile';
-import EditProfile from './EditProfile'
+import EditProfile from './EditProfile';
 
 const ProfileSection = styled.div`
   box-shadow: 0px 0px 6px 3px rgba(219,219,219,1);
@@ -15,16 +15,16 @@ const ProfileSection = styled.div`
   margin-top: 20px;
 `
 
-const ProfileContainer = (props) => {
-  const [editing, setEditing] = useState(false)
-  const user = useSelector(state => state.user)
+const ProfileContainer = () => {
+  const [editing, setEditing] = useState(false);
+  const user = useSelector(state => state.user);
   const onSubmit = () => {
-    setEditing(false)
+    setEditing(false);
   }
   const onCancel = () => {
-    setEditing(false)
+    setEditing(false);
   }
-  const onEdit = () => setEditing(true)
+  const onEdit = () => setEditing(true);
   return (
     <ProfileSection>
       {editing ?
@@ -36,4 +36,3 @@ const ProfileContainer = (props) => {
 }
 
 export default ProfileContainer;
-

@@ -67,12 +67,12 @@ const LoginButton = styled.div`
 const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [result, loading, error, login] = useLogin()
+  const [result, loading, error, login] = useLogin();
   const dispatch = useDispatch();
 
   if (result) {
-    dispatch({ type: Types.IS_AUTHENTICATED, payload: true })
-    dispatch({ type: Types.USER_INFO, payload: result })
+    dispatch({ type: Types.IS_AUTHENTICATED, payload: true });
+    dispatch({ type: Types.USER_INFO, payload: result });
     return <Redirect to={{ pathname: '/profile' }} />
   }
   return (
@@ -86,8 +86,7 @@ const LoginPage = () => {
           <InputLogin
             placeholder='Type your username'
             type='text'
-            name="username"
-            autoComplete="username"
+            name='username'
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
@@ -101,8 +100,7 @@ const LoginPage = () => {
             placeholder='Type your password'
             type='password'
             value={password}
-            name="password"
-            autoComplete="current-password"
+            name='password'
             onChange={(e) => setPassword(e.target.value)}
           />
         </InputSection>
@@ -115,4 +113,3 @@ const LoginPage = () => {
 }
 
 export default LoginPage;
-

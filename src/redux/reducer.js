@@ -1,7 +1,8 @@
 import Types from "./types";
 
 const initialState = {
-  items: [],
+  isAuthenticated: false,
+  user: {},
 };
 
 const todoReducer = (state = initialState, action) => {
@@ -22,12 +23,6 @@ const todoReducer = (state = initialState, action) => {
       return {
         ...state,
         user: action.payload,
-      }
-    }
-    case Types.SET_NEWS: {
-      return {
-        ...state,
-        items: state.items.concat([...action.payload]),
       }
     }
     default:

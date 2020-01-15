@@ -21,7 +21,7 @@ const Logout = () => {
   const dispatch = useDispatch();
 
   if (logout) {
-    dispatch({ type: Types.IS_AUTHENTICATED, payload: false })
+    dispatch({ type: Types.IS_AUTHENTICATED, payload: false });
   }
   return (
     <LogoutButton onClick={(e) => setlogout(true)}>Log out</LogoutButton>

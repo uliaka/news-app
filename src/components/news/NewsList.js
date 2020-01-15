@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import NewsItem from './NewsItem'
+import NewsItem from './NewsItem';
 
 const ListContainer = styled.div`
   display: flex;
@@ -19,4 +19,4 @@ const NewsList = (props) => {
   );
 }
 
-export default NewsList
+export default NewsList;

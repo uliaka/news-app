@@ -5,7 +5,6 @@ import localStorage from '../localStorage.js';
 const initialState = {
   user: {},
   isAuthenticated: false,
-  items: [],
 };
 const persistedState = localStorage.loadState() ? localStorage.loadState() : initialState;
 const store = createStore(

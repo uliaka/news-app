@@ -24,17 +24,17 @@ const useLogin = () => {
     try {
       setLoading(true)
       const result = await checkAuthorized(username, password)
-      setLoading(false)
-      setResult(result)
-      setError(null)
+      setLoading(false);
+      setResult(result);
+      setError(null);
     } catch (error) {
-      console.log(error)
-      setLoading(false)
-      setError(error)
+      console.log(error);
+      setLoading(false);
+      setError(error);
     }
 
   }
   return [result, loading, error, login]
 }
 
-export default useLogin
+export default useLogin;

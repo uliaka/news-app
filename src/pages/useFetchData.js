@@ -21,25 +21,25 @@ const fetchData = async (query, page) => {
 }
 
 const useFetchData = (query, page) => {
-  const [result, setResult] = useState(null)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
+  const [result, setResult] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   useEffect(() => {
     const fetch = async () => {
       try {
-        setLoading(true)
-        const result = await fetchData(query, page)
-        setLoading(false)
-        setResult(result)
-        setError(null)
+        setLoading(true);
+        const result = await fetchData(query, page);
+        setLoading(false);
+        setResult(result);
+        setError(null);
       } catch (error) {
-        console.log(error)
-        setLoading(false)
-        setError(error)
+        console.log(error);
+        setLoading(false);
+        setError(error);
       }
     }
     fetch()
-  }, [query, page])
+  }, [query, page]);
   return [result, loading, error]
 }
 

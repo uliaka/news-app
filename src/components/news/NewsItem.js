@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import moment from 'moment'
+import moment from 'moment';
 
 const ItemContainer = styled.div`
   box-shadow: 0px 0px 6px 3px rgba(219,219,219,1);
-  max-width: 500px;
+  width: 500px;
   max-height: 600px;
   display: flex;
   flex-wrap: wrap;
@@ -15,14 +15,19 @@ const ItemContainer = styled.div`
   @media(max-width: 420px) {
     max-width: 300px;
   }
+  &:hover {
+    box-shadow: -3px 3px 17px 3px rgba(207,207,207,1);
+    transition: 0.2s;
+  }
 `
 const ImageSection = styled.div`
   text-align: center;
-  max-width: 400px;
+  margin: auto;
+  max-width: 500px;
   flex: 1;
 `
 const Image = styled.img`
-  max-width: 400px;
+  max-width: 500px;
   max-height: 200px;
   @media(max-width: 420px) {
     max-width: 300px;
@@ -30,20 +35,20 @@ const Image = styled.img`
 `
 const Title = styled.div`
   padding: 10px;
-  max-width: 400px;
+  max-width: 500px;
   font-size: 20px;
   font-weight: bold;
 `
 const Description = styled.div`
   padding: 10px;
   max-height: 250px;
-  max-width: 400px;
+  max-width: 500px;
   overflow-wrap: break-word;
   word-wrap: break-word;
 `
 const InfoSection = styled.div`
   display: flex;
-  max-width: 400px;
+  max-width: 500px;
   align-items: center;
   padding: 10px;
 `
@@ -88,4 +93,3 @@ const NewsItem = (props) => {
 }
 
 export default NewsItem;
-

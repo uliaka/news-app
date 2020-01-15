@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
-import Logout from '../logout/logout'
+import Logout from '../logout/Logout';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 const NavBarContainer = styled.div`
   padding: 20px;
@@ -18,9 +20,14 @@ const NavBarContainer = styled.div`
   }
 `
 const Home = styled.div`
+  display: flex;
+  align-items: center;
+  flex: 1;
+`
+const TextNavBar = styled.span`
   height: 20px;
   font-size: 17px;
-  flex: 1;
+  margin-left: 5px;
 `
 const ProfileContainer = styled.div`
   display: flex;
@@ -49,12 +56,15 @@ const HelloMessage = styled.div`
 `
 
 const NavBar = () => {
-  const isAuthenticated = useSelector(state => state.isAuthenticated)
-  const username = useSelector(state => state.user.username)
+  const isAuthenticated = useSelector(state => state.isAuthenticated);
+  const username = useSelector(state => state.user.username);
   return (
     <NavBarContainer>
       <Home>
-        <Link to='/news'>Home</Link>
+        <Link to='/news'>
+          <FontAwesomeIcon icon={faHome} />
+          <TextNavBar>Home</TextNavBar>
+        </Link>
       </Home>
       {isAuthenticated &&
         <ProfileContainer>
@@ -62,7 +72,9 @@ const NavBar = () => {
             Hello, {username} !
           </HelloMessage>
           <Profile>
-            <Link to='/profile'>Profile</Link>
+            <Link to='/profile'>
+              Profile
+              </Link>
           </Profile>
           <Logout />
         </ProfileContainer>
