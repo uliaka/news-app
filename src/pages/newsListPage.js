@@ -20,7 +20,7 @@ const ErrorContainer = styled.div`
 const NewsListContainer = styled.div`
   overflow-x: hidden;
   overflow-y: auto;
-  height: 700px;
+  height: 760px;
 `
 
 const NewsListPage = () => {
@@ -39,7 +39,7 @@ const NewsListPage = () => {
   const handleScroll =  debounce(() => {
     const scroll = scrollRef.current
     const scrolledToBottom = Math.ceil(scroll.scrollTop + scroll.clientHeight) >= scroll.scrollHeight;
-    if (scrolledToBottom && result.articles) {
+    if (scrolledToBottom && result.articles.length > 0) {
       setPage(page + 1);
     }
   }, 100)

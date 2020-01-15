@@ -4,14 +4,17 @@ import moment from 'moment'
 
 const ItemContainer = styled.div`
   box-shadow: 0px 0px 6px 3px rgba(219,219,219,1);
-  max-width: 400px;
-  max-height: 500px;
+  max-width: 500px;
+  max-height: 600px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   margin: auto;
   margin-top: 20px;
   cursor: pointer;
+  @media(max-width: 420px) {
+    max-width: 300px;
+  }
 `
 const ImageSection = styled.div`
   text-align: center;
@@ -21,6 +24,9 @@ const ImageSection = styled.div`
 const Image = styled.img`
   max-width: 400px;
   max-height: 200px;
+  @media(max-width: 420px) {
+    max-width: 300px;
+  }
 `
 const Title = styled.div`
   padding: 10px;
@@ -30,7 +36,7 @@ const Title = styled.div`
 `
 const Description = styled.div`
   padding: 10px;
-  max-height: 200px;
+  max-height: 250px;
   max-width: 400px;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -44,6 +50,9 @@ const InfoSection = styled.div`
 const Info = styled.span`
   font-size: 13px;
   color: #565555;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `
 const Dot = styled.div`
   height: 5px;
@@ -71,12 +80,6 @@ const NewsItem = (props) => {
       </Description>
       <InfoSection>
         <Info>{item.source["name"]}</Info>
-        {item.author &&
-          <>
-            <Dot />
-            <Info>{item.author}</Info>
-          </>
-        }
         <Dot />
         <Info>{moment(item.publishedAt).fromNow()}</Info>
       </InfoSection>
@@ -84,4 +87,5 @@ const NewsItem = (props) => {
   );
 }
 
-export default NewsItem
+export default NewsItem;
+

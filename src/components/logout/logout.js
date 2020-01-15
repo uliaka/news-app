@@ -14,7 +14,6 @@ const LogoutButton = styled.div`
   cursor: pointer;
   @media(max-width: 414px) {
     padding: 5px 10px;
-    font-size: 12px;
   }
 `
 const Logout = () => {
