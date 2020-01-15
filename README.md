@@ -1,15 +1,20 @@
-# News app 
+# API key 
 
-News-app is a simple news app which uses [NewsAPI](https://newsapi.org/) to fetch news from the API.
+You'll need to provide API key to fetch the news from the News Service [NewsAPI](https://newsapi.org/). 
+
+Create a new file named .env in the project root folder
+Insert the API key in .env file:
+REACT_APP_API_KEY=your key
 
 # Project setup
 
 In the project directory, you can run:
 
+Install dependencies:
 ### `npm install` 
 
 Compiles for development:
-
 ### `npm run start`
 Runs the app.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+

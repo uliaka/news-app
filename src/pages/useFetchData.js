@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react';
 
 const fetchData = async (query, page) => {
+  const API_KEY = process.env.REACT_APP_API_KEY;
   let url = 'https://newsapi.org/v2/top-headlines?' +
     'country=us&' +
     `page=${page}&` +
-    'apiKey=f5028aa71fe0479980eaa4a7290790d0';
+    `apiKey=${API_KEY}`
   if (query) {
     url = 'https://newsapi.org/v2/everything?' +
       `q=${query}& ` +
       `page=${page}&` +
       'sortBy=popularity&' +
-      'apiKey=f5028aa71fe0479980eaa4a7290790d0'
+      `apiKey=${API_KEY}`
   }
   try {
     let response = await fetch(url);
