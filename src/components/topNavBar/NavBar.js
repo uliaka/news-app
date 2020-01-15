@@ -28,6 +28,9 @@ const TextNavBar = styled.span`
   height: 20px;
   font-size: 17px;
   margin-left: 5px;
+  @media(max-width: 384px) {
+    display: none;
+  }
 `
 const ProfileContainer = styled.div`
   display: flex;
