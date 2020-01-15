@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
+import debounce from "lodash.debounce";
 import NewsList from '../components/news/NewsList'
 import useFetchData from './useFetchData';
-import Spinner from '../components/spinner/spinner';
+import Spinner from '../components/spinner/Spinner';
 import Search from '../components/search/Search';
 
 const ErrorContainer = styled.div`
@@ -35,17 +36,18 @@ const NewsListPage = () => {
     }
   }, [result])
 
-  const handleScroll = () => {
+  const handleScroll =  debounce(() => {
     const scroll = scrollRef.current
     const scrolledToBottom = Math.ceil(scroll.scrollTop + scroll.clientHeight) >= scroll.scrollHeight;
     if (scrolledToBottom && result.articles) {
       setPage(page + 1);
     }
-  }
+  }, 100)
 
   const onSearch = (query) => {
     setItems([])
     setQuery(query)
+    setPage(1)
   }
   return (
     <>
