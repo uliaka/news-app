@@ -18,12 +18,13 @@ const NewsListContainer = styled.div`
   -ms-overflow-style: none;
 `
 const ErrorContainer = styled.div`
-  box-shadow: 0px 0px 6px 3px rgba(219,219,219,1);
-  width: 400px;
+  width: 300px;
   height: 50px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  color: red;
   margin: auto;
   margin-top: 20px;
   font-size: 20px;
@@ -63,7 +64,7 @@ const NewsListPage = () => {
         {loading && <Spinner />}
         {error &&
           <ErrorContainer>
-            {error}
+            Failed to fetch news
           </ErrorContainer>
         }
       </NewsListContainer>
