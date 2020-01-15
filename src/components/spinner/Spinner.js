@@ -10,7 +10,6 @@ const SpinnerContainer = styled.div`
   align-items: center;
   margin: 0 auto;
 `
-
 const spin = keyframes`
   0% {
     transform: rotate(0deg);
@@ -27,7 +26,6 @@ const SpinnerSection = styled.div`
   height: 30px;
   animation: ${spin} 1.5s linear infinite;
 `
-
 
 const Spinner = () => (
   <SpinnerContainer>

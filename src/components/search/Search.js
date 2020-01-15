@@ -13,6 +13,7 @@ const SearchSection = styled.div`
   align-items: center;
   margin: auto;
   margin-top: 20px;
+  margin-bottom: 20px;
 `
 const IconSearch = styled.div`
   margin: 5px;
@@ -27,15 +28,11 @@ const InputSearch = styled.input`
 }
 `
 const Search = (props) => {
-  const [query, setQuery] = useState('');
-
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
-      setQuery(e.target.value)
+      props.onSearch(e.target.value)
     }
   }
-  props.onSearch(query)
-  
   return (
     <SearchSection>
       <IconSearch>

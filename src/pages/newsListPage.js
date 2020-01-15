@@ -1,7 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
-import Types from '../redux/types';
 import NewsList from '../components/news/NewsList'
 import useFetchData from './useFetchData';
 import Spinner from '../components/spinner/spinner';
@@ -34,30 +32,33 @@ const NewsListPage = () => {
   useEffect(() => {
     if (result && result.articles) {
       setItems(items.concat(result.articles))
-    } 
+    }
   }, [result])
 
   const handleScroll = () => {
     const scroll = scrollRef.current
     const scrolledToBottom = Math.ceil(scroll.scrollTop + scroll.clientHeight) >= scroll.scrollHeight;
-    if (scrolledToBottom) {
-      setPage(page + 1)
+    if (scrolledToBottom && result.articles) {
+      setPage(page + 1);
     }
   }
-  console.log('items', items)
 
+  const onSearch = (query) => {
+    setItems([])
+    setQuery(query)
+  }
   return (
     <>
-      <Search onSearch={setQuery} />
+      <Search onSearch={onSearch} />
       <NewsListContainer ref={scrollRef} onScroll={handleScroll}>
         <NewsList items={items} />
         {loading && <Spinner />}
+        {error &&
+          <ErrorContainer>
+            {error}
+          </ErrorContainer>
+        }
       </NewsListContainer>
-      {error &&
-        <ErrorContainer>
-          {error}
-        </ErrorContainer>
-      }
     </>
   );
 }
