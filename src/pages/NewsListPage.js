@@ -7,6 +7,41 @@ import Spinner from '../components/spinner/Spinner';
 import Search from '../components/search/Search';
 import CategoryList from '../components/category/CategoryList';
 
+const FilterContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  max-width: 400px;
+  margin-left: 40px;
+  border-bottom: 1px solid grey;
+  padding-bottom: 30px;
+  @media(max-width: 1434px) {
+    max-width: max-content;
+    width: 100%;
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    border-bottom: none;
+    margin: auto;
+    align-items: center;
+    padding-bottom: 10px;
+  }
+  @media(max-width: 698px) {
+    width: 99%;
+    overflow: auto;
+    > div {
+      flex-wrap: nowrap; 
+    }
+  }
+`
+const LableContainer = styled.div`
+  font-size: 18px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  @media(max-width: 1434px) {
+    display: none;
+  }
+`
 const NewsListContainer = styled.div`
   overflow-x: hidden;
   overflow-y: auto;
@@ -57,7 +92,9 @@ const NewsListPage = () => {
     setItems([]);
     setQuery(query);
     setPage(1);
+    setCategory('');
   }
+  
   const onCategoryClick = (category) => {
     setItems([]);
     setCategory(category);
@@ -66,8 +103,11 @@ const NewsListPage = () => {
 
   return (
     <>
-      <Search onSearch={onSearch} />
-      <CategoryList onCategoryClick={onCategoryClick} />
+      <Search onSearch={onSearch}/>
+      <FilterContainer>
+        <LableContainer>Category:</LableContainer>
+        <CategoryList onCategoryClick={onCategoryClick} active/>
+      </FilterContainer>
       <NewsListContainer ref={scrollRef} onScroll={handleScroll}>
         <NewsList items={items} />
         {loading && <Spinner />}
