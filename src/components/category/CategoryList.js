@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const CategoryListContainer = styled.div`
@@ -10,8 +10,9 @@ const CategoryContainer = styled.div`
   width: max-content;
   max-height: 50px;
   border-radius: 10px;
-  color: #A47ADC;
+  color: ${props => (props.active ? 'white' : '#A47ADC')};
   border: 1px solid #A47ADC;
+  background-color: ${props => (props.active ? '#A47ADC' : 'white')};
   margin: 0 15px 15px 0;
   cursor: pointer;
   &:hover {
@@ -29,11 +30,17 @@ const CategoryList = (props) => {
     { id: 1, title: 'business' }, { id: 2, title: 'entertainment' }, { id: 3, title: 'general' }, { id: 4, title: 'health' },
     { id: 5, title: 'science' }, { id: 6, title: 'sports' }, { id: 7, title: 'technology' },
   ];
+  const [active, setActive] = useState('');
+
+  const onClick = (e) => {
+    props.onCategoryClick(e.target.textContent)
+    setActive(e.target.textContent)
+  }
 
   return (
     <CategoryListContainer>
       {categories.map(category =>
-        <CategoryContainer onClick={(e) => props.onCategoryClick(e.target.textContent)}>
+        <CategoryContainer active={category.title === active ? true : false} onClick={(e) => onClick(e)}>
           <CategoryTitle>
             {category.title}
           </CategoryTitle>
