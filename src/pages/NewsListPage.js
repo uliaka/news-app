@@ -5,6 +5,7 @@ import NewsList from '../components/news/NewsList';
 import useFetchData from './useFetchData';
 import Spinner from '../components/spinner/Spinner';
 import Search from '../components/search/Search';
+import CategoryList from '../components/category/CategoryList';
 
 const NewsListContainer = styled.div`
   overflow-x: hidden;
@@ -33,15 +34,16 @@ const ErrorContainer = styled.div`
 const NewsListPage = () => {
   const scrollRef = useRef({});
   const [page, setPage] = useState(1)
+  const [category, setCategory] = useState('')
   const [items, setItems] = useState([])
   const [query, setQuery] = useState('');
-  const [result, loading, error] = useFetchData(query, page);
+  const [result, loading, error] = useFetchData(query, page, category);
 
   useEffect(() => {
     if (result && result.articles) {
       setItems(items.concat(result.articles))
     }
-  }, [result])
+  }, [result]);
 
   const handleScroll = debounce(() => {
     const scroll = scrollRef.current
@@ -52,13 +54,20 @@ const NewsListPage = () => {
   }, 100)
 
   const onSearch = (query) => {
-    setItems([])
-    setQuery(query)
-    setPage(1)
+    setItems([]);
+    setQuery(query);
+    setPage(1);
   }
+  const onCategoryClick = (category) => {
+    setItems([]);
+    setCategory(category);
+    setPage(1);
+  }
+
   return (
     <>
       <Search onSearch={onSearch} />
+      <CategoryList onCategoryClick={onCategoryClick} />
       <NewsListContainer ref={scrollRef} onScroll={handleScroll}>
         <NewsList items={items} />
         {loading && <Spinner />}

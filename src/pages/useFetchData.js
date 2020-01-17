@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 
-const fetchData = async (query, page) => {
+const fetchData = async (query, page, category) => {
   const API_KEY = process.env.REACT_APP_API_KEY;
+  let searchCategory = category ? category : 'general';
   let url = 'https://newsapi.org/v2/top-headlines?' +
     'country=us&' +
     `page=${page}&` +
+    `category=${searchCategory}&` +
     `apiKey=${API_KEY}`
   if (query) {
     url = 'https://newsapi.org/v2/everything?' +
@@ -21,7 +23,7 @@ const fetchData = async (query, page) => {
   }
 }
 
-const useFetchData = (query, page) => {
+const useFetchData = (query, page, category) => {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -29,7 +31,7 @@ const useFetchData = (query, page) => {
     const fetch = async () => {
       try {
         setLoading(true);
-        const result = await fetchData(query, page);
+        const result = await fetchData(query, page, category);
         setLoading(false);
         setResult(result);
         if (result.status === 'error') {
@@ -43,7 +45,7 @@ const useFetchData = (query, page) => {
       }
     }
     fetch()
-  }, [query, page]);
+  }, [query, page, category]);
   return [result, loading, error]
 }
 
