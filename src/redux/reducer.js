@@ -1,8 +1,10 @@
 import Types from "./types";
+import ACTIONS from "./actions";
 
 const initialState = {
   isAuthenticated: false,
   user: {},
+  news: []
 };
 
 const todoReducer = (state = initialState, action) => {
@@ -23,6 +25,12 @@ const todoReducer = (state = initialState, action) => {
       return {
         ...state,
         user: action.payload,
+      }
+    }
+    case ACTIONS.Types.GET_NEWS: {
+      return {
+        ...state,
+        news: action.payload,
       }
     }
     default:

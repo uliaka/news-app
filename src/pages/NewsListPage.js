@@ -6,6 +6,7 @@ import useFetchData from './useFetchData';
 import Spinner from '../components/spinner/Spinner';
 import Search from '../components/search/Search';
 import CategoryList from '../components/category/CategoryList';
+import { useSelector } from 'react-redux';
 
 const FilterContainer = styled.div`
   display: flex;
@@ -73,6 +74,9 @@ const NewsListPage = () => {
   const [items, setItems] = useState([])
   const [query, setQuery] = useState('');
   const [result, loading, error] = useFetchData(query, page, category);
+
+  const news = useSelector(state => state.news) || [];
+  console.log('state', news)
 
   useEffect(() => {
     if (result && result.articles) {

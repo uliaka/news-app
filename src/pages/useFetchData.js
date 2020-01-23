@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import ACTIONS from '../redux/actions.js';
 
 const fetchData = async (query, page, category) => {
   const API_KEY = process.env.REACT_APP_API_KEY;
@@ -24,14 +26,15 @@ const fetchData = async (query, page, category) => {
 }
 
 const useFetchData = (query, page, category) => {
+  const dispatch = useDispatch();
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   useEffect(() => {
-    const fetch = async () => {
+    const fetch = () => {
       try {
         setLoading(true);
-        const result = await fetchData(query, page, category);
+        const result = dispatch(ACTIONS.getNews(query, page, category));;
         setLoading(false);
         setResult(result);
         if (result.status === 'error') {

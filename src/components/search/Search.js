@@ -33,6 +33,7 @@ const Search = (props) => {
       props.onSearch(e.target.value)
     }
   }
+  
   return (
     <SearchSection>
       <IconSearch>
